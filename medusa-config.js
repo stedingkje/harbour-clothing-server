@@ -53,7 +53,7 @@ const plugins = [
   //   },
   // },
 ];
-console.log(ADMIN_CORS)
+
 module.exports = {
   projectConfig: {
     redis_url: REDIS_URL,
