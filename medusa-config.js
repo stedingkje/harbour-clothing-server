@@ -46,15 +46,13 @@ const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || "";
 const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
-  // Uncomment to add Stripe support.
-  // You can create a Stripe account via: https://stripe.com
-  // {
-  //   resolve: `medusa-payment-stripe`,
-  //   options: {
-  //     api_key: STRIPE_API_KEY,
-  //     webhook_secret: STRIPE_WEBHOOK_SECRET,
-  //   },
-  // },
+  {
+    resolve: `medusa-payment-stripe`,
+    options: {
+      api_key: STRIPE_API_KEY,
+      webhook_secret: STRIPE_WEBHOOK_SECRET,
+    },
+  },
 ];
 
 module.exports = {
@@ -67,7 +65,7 @@ module.exports = {
     // database_type: "sqlite",
     store_cors: STORE_CORS,
     admin_cors: ADMIN_CORS,
-    // ...(process.env.NODE_ENV === "production" && {
+      // ...(process.env.NODE_ENV === "production" && {
     //   database_extra: { ssl: { rejectUnauthorized: false } },
     // }),
   },
